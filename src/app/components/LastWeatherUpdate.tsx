@@ -1,5 +1,5 @@
 "use client";
-import { useWeather } from "@/app/context/WeatherContext";
+import {useWeather} from "@/app/context/WeatherContext";
 import styles from "./styles.module.css";
 
 const formatDate = (dateString: string) => {

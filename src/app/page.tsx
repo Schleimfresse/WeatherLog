@@ -28,7 +28,18 @@ export default function Home() {
             />
           </div>
           <div className={styles.weatherImg}>
-            {weatherData?.img && (
+
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}
+
+
+/*
+
+{weatherData?.img && (
               <object
                 data={`/assets/${weatherData.img}.svg`}
                 width="300"
@@ -36,9 +47,5 @@ export default function Home() {
               >
               </object>
             )}
-          </div>
-        </section>
-      </main>
-    </>
-  );
-}
+
+ */
