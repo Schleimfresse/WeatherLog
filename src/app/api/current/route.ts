@@ -1,7 +1,7 @@
 import { ReqWeatherData, WeatherData } from "@/app/types/WeatherData";
 
 export async function GET() {
-  const res = await fetch("http://192.168.178.40:8080/current");
+  const res = await fetch(process.env.URL + "/current");
   const data: ReqWeatherData = await res.json();
 
   const weatherData: WeatherData = {

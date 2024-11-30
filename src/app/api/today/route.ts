@@ -7,7 +7,7 @@ export async function GET() {
     date.getDate();
 
   const res = await fetch(
-    `http://192.168.178.40:8080/history?date=${dateString}`,
+      process.env.URL + `/history?date=${dateString}`,
   );
   const data: ReqWeatherData[] = await res.json();
 
