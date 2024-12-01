@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import styles from "../data.module.css";
 import { parseToDDMMYYYY } from "@/app/utils/parseDateToDDMMYYYY";
@@ -9,7 +8,9 @@ import {
   ReqWeatherData,
   WeatherDataArray,
 } from "@/app/types/WeatherData";
-import { ChartOptions } from "chart.js/auto";
+import ChartJS  from "chart.js/auto";
+import {optionsWithHighlight, options, HighlightLinePlugin} from "@/app/data/ChartOptions"
+ChartJS.register(HighlightLinePlugin);
 import WeatherDataHeading from "@/app/components/WeatherDataHeading";
 
 function findFirstAndLastDates(
@@ -38,49 +39,6 @@ export default function GraphPage() {
   const [loading, setLoading] = useState(true);
   const [dateRange, setDateRange] = useState({ first: "", last: "" });
   const [hasError, setHasError] = useState(false);
-
-  const options: ChartOptions<"line"> = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top",
-        labels: {
-          color: "white",
-          font: {
-            size: 16,
-          },
-        },
-      },
-    },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "Date",
-          color: "white",
-          font: {
-            size: 16,
-          },
-        },
-        ticks: {
-          color: "white",
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: "Value",
-          color: "white",
-          font: {
-            size: 16,
-          },
-        },
-        ticks: {
-          color: "white",
-        },
-      },
-    },
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -173,7 +131,7 @@ export default function GraphPage() {
         <div
           style={{ maxWidth: "800px", maxHeight: "400px", margin: "0 auto" }}
         >
-          <Line data={chartData.temperature} options={options} />
+          <Line data={chartData.temperature} options={optionsWithHighlight} />
         </div>
       </div>
       <div className={styles.chartWrapper}>

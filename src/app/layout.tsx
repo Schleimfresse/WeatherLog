@@ -3,6 +3,12 @@ import "./globals.css";
 import { WeatherProvider } from "@/app/context/WeatherContext";
 import Header from "@/app/components/Header";
 import React from "react";
+import type { Viewport } from 'next'
+
+export const viewport: Viewport = {
+  themeColor: "#0064F9",
+  colorScheme: "light",
+}
 
 export const metadata: Metadata = {
   title: "WeatherLog",
@@ -37,7 +43,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  themeColor: "#0064F9",
   twitter: {
     card: 'summary',
     title: 'WeatherLog - Linus Genz',

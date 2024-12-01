@@ -13,6 +13,7 @@ export type ReqWeatherData = {
   pressure: string;
   humidity: string;
   timestamp: string;
+  error?: string;
 };
 
 export type WeatherDataArray = {
